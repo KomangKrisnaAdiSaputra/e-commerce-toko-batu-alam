@@ -1,4 +1,23 @@
 @extends('pembeli.layouts.main')
+@section('css')
+    <style>
+        .data-data {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* warna background putih dengan opacity 0.8 */
+        }
+
+        /* tambahan style untuk membuat data-data number dan span tersusun secara horizontal */
+        .data-data .number,
+        .data-data span {
+            display: inline-block;
+            margin: 0 5px;
+        }
+    </style>
+@endsection
 @section('data')
     <div class="hero-wrap hero-bread" style="background-image: url('assets_pembeli/images/bg_6.jpg');">
         <div class="container">
@@ -79,7 +98,7 @@
                                         <span class="flaticon-003-medal"></span>
                                     </div>
                                     <div class="media-body">
-                                        <h3 class="heading">Kualitas Produk</h3>
+                                        <h3 class="heading">Kualitas Produk Berkualitas</h3>
                                         <p>
                                             Kami sangat menjungjung tinggi kualitas produk kami
                                         </p>
@@ -102,34 +121,38 @@
                     <div class="row {{ auth()->user() == null ? 'd-flex justify-content-center' : '' }} ">
                         <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18 text-center">
-                                <div class="text">
-                                    <strong class="number strokeme" data-number="{{ $data['total_produk'] }}">0</strong>
-                                    <span class="strokeme">Total Produk</span>
+                                <div class="text data-data">
+                                    <strong class="number font-weight-bold"
+                                        data-number="{{ $data['total_produk'] }}">0</strong>
+                                    <span class="text-dark font-weight-bold">Total Produk</span>
                                 </div>
                             </div>
                         </div>
                         @auth
                             <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                                 <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number strokeme" data-number="{{ $data['total_pesanan'] }}">0</strong>
-                                        <span class="strokeme">Total Pesanan</span>
+                                    <div class="text data-data">
+                                        <strong class="number font-weight-bold"
+                                            data-number="{{ $data['total_pesanan'] }}">0</strong>
+                                        <span class="text-dark font-weight-bold">Total Pesanan</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                                 <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number strokeme" data-number="{{ $data['total_transaksi'] }}">0</strong>
-                                        <span class="strokeme">Total Transaksi</span>
+                                    <div class="text data-data">
+                                        <strong class="number font-weight-bold"
+                                            data-number="{{ $data['total_transaksi'] }}">0</strong>
+                                        <span class="text-dark font-weight-bold">Total Transaksi</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                                 <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number strokeme" data-number="{{ $data['total_pembeli'] }}">0</strong>
-                                        <span class="strokeme">Total Pembeli</span>
+                                    <div class="text data-data">
+                                        <strong class="number font-weight-bold"
+                                            data-number="{{ $data['total_pembeli'] }}">0</strong>
+                                        <span class="text-dark font-weight-bold">Total Pembeli</span>
                                     </div>
                                 </div>
                             </div>

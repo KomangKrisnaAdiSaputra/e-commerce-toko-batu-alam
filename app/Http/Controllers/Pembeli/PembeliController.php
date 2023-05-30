@@ -15,10 +15,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Intervention\Image\Facades\Image as ResizeImage;
-use Illuminate\Support\Facades\File as FacadesFile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Redirect;
 
 class PembeliController extends Controller
 {
@@ -360,8 +358,8 @@ class PembeliController extends Controller
                 $tb_barangg->update([
                     'total_terjual' => $tb_barangg->total_terjual + $value->jumlah
                 ]);
-                $gambar = public_path('image/barang/' . $value->tb_barang->gambar);
-                $path = public_path('image/transaksi/');
+                $gambar =  getcwd() . '/image/barang/' . $value->tb_barang->gambar;
+                $path = getcwd() . '/image/transaksi/';
 
                 !is_dir($path) &&
                     mkdir($path, 0777, true);
@@ -403,8 +401,10 @@ class PembeliController extends Controller
             $tb_barangg->update([
                 'total_terjual' => $tb_barangg->total_terjual + $request->jumlah
             ]);
-            $gambar = public_path('image/barang/' . $tb_ukuran->tb_barang->gambar);
-            $path = public_path('image/transaksi/');
+
+            $gambar =  getcwd() . '/image/barang/' . $tb_ukuran->tb_barang->gambar;
+            $path = getcwd() . '/image/transaksi/';
+
             !is_dir($path) &&
                 mkdir($path, 0777, true);
 
@@ -417,6 +417,8 @@ class PembeliController extends Controller
             'tipe_pembayaran' => $request->tipe_pembayaran,
             'kode_transaksi' => $kode_transaksi_baru
         ];
+        $detail_pembeli = TbDetailPembeli::where('id_user', auth()->user()->id)->first();
+        TbDetailPembeli::find($detail_pembeli->id)->update(['tanggal_transaksi_terakhir' => Carbon::now()]);
         Mail::to($email)->send(new EmailPesananMasuk($data_email));
         return response()->json();
     }

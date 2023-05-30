@@ -1,4 +1,32 @@
 @extends('pembeli.layouts.main')
+@section('css')
+    <style>
+        .data-data {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* warna background putih dengan opacity 0.8 */
+        }
+
+        /* tambahan style untuk membuat data-data number dan span tersusun secara horizontal */
+        .data-data .number,
+        .data-data span {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .data2 {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 180%;
+        }
+    </style>
+@endsection
 @section('data')
     <section id="home-section" class="hero">
         <div class="home-slider js-fullheight owl-carousel">
@@ -77,29 +105,15 @@
                     </div>
                     <div class="{{ $key > 0 ? 'col-md-7 py-3' : 'col-md-4' }}  py-md-5 ftco-animate">
                         <div class="text  {{ $key > 0 ? 'text-2 py-md-5' : 'py-3' }} py-md-5">
-                            <h2 class="mb-4 strokeme">Batu yang paling laku terjual: <br> {{ $value->nama_barang }}
+                            <h2 class="mb-4 data2 text-dark font-weight-bold">Batu yang paling laku terjual: <br>
+                                <span class="mt-2">{{ $value->nama_barang }}</span>
                             </h2>
-                            <p class="strokeme">{{ $value->keterangan }}</p>
+                            <p class="data-data text-dark ">{{ $value->keterangan }}</p>
                             <p><a href="{{ route('data-produk') }}" class="btn btn-white px-4 py-3">Beli Sekarang</a></p>
                         </div>
                     </div>
                 </div>
             @endforeach
-
-            {{-- <div class="row"> --}}
-            {{-- <div class="col-md-5 order-md-last d-flex align-items-stretch">
-                    <div class="img img-2" style="background-image: url(assets_pembeli/images/about-2.jpg);"></div>
-                </div> --}}
-            {{-- <div class="col-md-7 py-3 py-md-5 ftco-animate">
-                    <div class="text text-2 py-md-5">
-                        <h2 class="mb-4">New Men's Clothing Summer Collection 2019</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                            live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                            a large language ocean.</p>
-                        <p><a href="#" class="btn btn-white px-4 py-3">Shop now</a></p>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </section>
 
@@ -113,11 +127,11 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-lg-10 order-md-last">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 order-md-last">
                     <div class="row">
                         @foreach ($data['produk'] as $key => $value)
-                            <div class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
+                            <div class="col-md-6 col-lg-6 col-xl-3 col-xxl-3 ftco-animate">
                                 <div class="product">
                                     <a href="@auth javascript:; @else {{ route('index-login') }} @endauth" class="img-prod"
                                         @if (auth()->user() != null && auth()->user()->role == 2) onclick="Modal('{{ route('tambah-keranjang', ['id' => $value->id, 'status' => 'tambah keranjang']) }}', 'modal-lg', 'Tambah Keranjang')" @endif>
@@ -165,35 +179,38 @@
                     <div class="row {{ auth()->user() == null ? 'd-flex justify-content-center' : '' }} ">
                         <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18 text-center">
-                                <div class="text">
-                                    <strong class="number strokeme" data-number="{{ $data['total_produk'] }}">0</strong>
-                                    <span class="strokeme">Total Produk</span>
+                                <div class="text data-data">
+                                    <strong class="number font-weight-bold"
+                                        data-number="{{ $data['total_produk'] }}">0</strong>
+                                    <span class="text-dark font-weight-bold">Total Produk</span>
                                 </div>
                             </div>
                         </div>
                         @auth
                             <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                                 <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number strokeme" data-number="{{ $data['total_pesanan'] }}">0</strong>
-                                        <span class="strokeme">Total Pesanan</span>
+                                    <div class="text data-data">
+                                        <strong class="number font-weight-bold"
+                                            data-number="{{ $data['total_pesanan'] }}">0</strong>
+                                        <span class="text-dark font-weight-bold">Total Pesanan</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                                 <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number strokeme"
+                                    <div class="text data-data">
+                                        <strong class="number font-weight-bold"
                                             data-number="{{ $data['total_transaksi'] }}">0</strong>
-                                        <span class="strokeme">Total Transaksi</span>
+                                        <span class="text-dark font-weight-bold">Total Transaksi</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
                                 <div class="block-18 text-center">
-                                    <div class="text">
-                                        <strong class="number strokeme" data-number="{{ $data['total_pembeli'] }}">0</strong>
-                                        <span class="strokeme">Total Pembeli</span>
+                                    <div class="text data-data">
+                                        <strong class="number font-weight-bold"
+                                            data-number="{{ $data['total_pembeli'] }}">0</strong>
+                                        <span class="text-dark font-weight-bold">Total Pembeli</span>
                                     </div>
                                 </div>
                             </div>

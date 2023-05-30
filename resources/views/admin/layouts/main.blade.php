@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('image/favicon-logo.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('image/favicon-logo.png') }}">
     <title>
-        {{ $data['title'] }} || UD Adi Alam Bagus
+        {{ $data['title'] }} || UD. Adi Alam Bagus
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -75,8 +75,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
-                target="_blank">
+            <a class="navbar-brand m-0" href="{{ route('halaman-utama') }}" target="_blank">
                 <img src="{{ asset('image/logo-toko.png') }}" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold">UD Adi Alam Bagus</span>
             </a>
@@ -84,60 +83,82 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('dashboard') ? 'active' : 'button-hover-custom' }} "
-                        href="{{ route('dashboard.index') }}">
-                        <div
-                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg fill="#000000" width="256px" height="256px" viewBox="0 0 1920 1920"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <title>Dashboard</title>
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path class="color-background"
-                                        d="M833.935 1063.327c28.913 170.315 64.038 348.198 83.464 384.79 27.557 51.84 92.047 71.944 144 44.387 51.84-27.558 71.717-92.273 44.16-144.113-19.426-36.593-146.937-165.46-271.624-285.064Zm-43.821-196.405c61.553 56.923 370.899 344.81 415.285 428.612 56.696 106.842 15.811 239.887-91.144 296.697-32.64 17.28-67.765 25.411-102.325 25.411-78.72 0-154.955-42.353-194.371-116.555-44.386-83.802-109.102-501.346-121.638-584.245-3.501-23.717 8.245-47.21 29.365-58.277 21.346-11.294 47.096-8.02 64.828 8.357ZM960.045 281.99c529.355 0 960 430.757 960 960 0 77.139-8.922 153.148-26.654 225.882l-10.39 43.144h-524.386v-112.942h434.258c9.487-50.71 14.231-103.115 14.231-156.084 0-467.125-380.047-847.06-847.059-847.06-467.125 0-847.059 379.935-847.059 847.06 0 52.97 4.744 105.374 14.118 156.084h487.454v112.942H36.977l-10.39-43.144C8.966 1395.137.044 1319.128.044 1241.99c0-529.243 430.645-960 960-960Zm542.547 390.686 79.85 79.85-112.716 112.715-79.85-79.85 112.716-112.715Zm-1085.184 0L530.123 785.39l-79.85 79.85L337.56 752.524l79.849-79.85Zm599.063-201.363v159.473H903.529V471.312h112.942Z"
-                                        fill-rule="evenodd"></path>
-                                </g>
-                            </svg>
-                        </div>
-                        <span class="nav-link-text ms-1 ">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('barang') ? 'active' : 'button-hover-custom' }}"
-                        href="{{ route('barang.index') }}">
-                        <div
-                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg width="256px" height="256px" viewBox="0 0 512 512" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                fill="#000000">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <title>Barang</title>
-                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                        fill-rule="evenodd">
-                                        <g id="icon" fill="#000000" transform="translate(64.000000, 34.346667)">
-                                            <path class="color-background"
-                                                d="M192,7.10542736e-15 L384,110.851252 L384,332.553755 L192,443.405007 L1.42108547e-14,332.553755 L1.42108547e-14,110.851252 L192,7.10542736e-15 Z M127.999,206.918 L128,357.189 L170.666667,381.824 L170.666667,231.552 L127.999,206.918 Z M42.6666667,157.653333 L42.6666667,307.920144 L85.333,332.555 L85.333,182.286 L42.6666667,157.653333 Z M275.991,97.759 L150.413,170.595 L192,194.605531 L317.866667,121.936377 L275.991,97.759 Z M192,49.267223 L66.1333333,121.936377 L107.795,145.989 L233.374,73.154 L192,49.267223 Z"
-                                                id="Combined-Shape"> </path>
+                @if (auth()->user()->role === 1)
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('dashboard') ? 'active' : 'button-hover-custom' }} "
+                            href="{{ route('dashboard.index') }}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <svg fill="#000000" width="256px" height="256px" viewBox="0 0 1920 1920"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>Dashboard</title>
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path class="color-background"
+                                            d="M833.935 1063.327c28.913 170.315 64.038 348.198 83.464 384.79 27.557 51.84 92.047 71.944 144 44.387 51.84-27.558 71.717-92.273 44.16-144.113-19.426-36.593-146.937-165.46-271.624-285.064Zm-43.821-196.405c61.553 56.923 370.899 344.81 415.285 428.612 56.696 106.842 15.811 239.887-91.144 296.697-32.64 17.28-67.765 25.411-102.325 25.411-78.72 0-154.955-42.353-194.371-116.555-44.386-83.802-109.102-501.346-121.638-584.245-3.501-23.717 8.245-47.21 29.365-58.277 21.346-11.294 47.096-8.02 64.828 8.357ZM960.045 281.99c529.355 0 960 430.757 960 960 0 77.139-8.922 153.148-26.654 225.882l-10.39 43.144h-524.386v-112.942h434.258c9.487-50.71 14.231-103.115 14.231-156.084 0-467.125-380.047-847.06-847.059-847.06-467.125 0-847.059 379.935-847.059 847.06 0 52.97 4.744 105.374 14.118 156.084h487.454v112.942H36.977l-10.39-43.144C8.966 1395.137.044 1319.128.044 1241.99c0-529.243 430.645-960 960-960Zm542.547 390.686 79.85 79.85-112.716 112.715-79.85-79.85 112.716-112.715Zm-1085.184 0L530.123 785.39l-79.85 79.85L337.56 752.524l79.849-79.85Zm599.063-201.363v159.473H903.529V471.312h112.942Z"
+                                            fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="nav-link-text ms-1 ">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('barang') ? 'active' : 'button-hover-custom' }}"
+                            href="{{ route('barang.index') }}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <svg width="256px" height="256px" viewBox="0 0 512 512" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <title>Barang</title>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                            fill-rule="evenodd">
+                                            <g id="icon" fill="#000000"
+                                                transform="translate(64.000000, 34.346667)">
+                                                <path class="color-background"
+                                                    d="M192,7.10542736e-15 L384,110.851252 L384,332.553755 L192,443.405007 L1.42108547e-14,332.553755 L1.42108547e-14,110.851252 L192,7.10542736e-15 Z M127.999,206.918 L128,357.189 L170.666667,381.824 L170.666667,231.552 L127.999,206.918 Z M42.6666667,157.653333 L42.6666667,307.920144 L85.333,332.555 L85.333,182.286 L42.6666667,157.653333 Z M275.991,97.759 L150.413,170.595 L192,194.605531 L317.866667,121.936377 L275.991,97.759 Z M192,49.267223 L66.1333333,121.936377 L107.795,145.989 L233.374,73.154 L192,49.267223 Z"
+                                                    id="Combined-Shape"> </path>
+                                            </g>
                                         </g>
                                     </g>
-                                </g>
-                            </svg>
-                        </div>
-                        <span class="nav-link-text ms-1">Barang</span>
-                    </a>
-                </li>
+                                </svg>
+                            </div>
+                            <span class="nav-link-text ms-1">Barang</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('user-manajemen') ? 'active' : 'button-hover-custom' }}"
+                            href="{{ route('user-manajemen.index') }}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <svg fill="#000000" width="256px" height="256px" viewBox="0 0 1920 1920"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path class="color-background"
+                                            d="M1587.854 1133.986c-109.666-42.353-223.51-72.057-339.276-91.257h-5.195c135.53-91.369 224.866-246.324 224.866-421.609v-24.847c-28.235 18.07-64.377 41.788-115.087 57.713-15.925 202.165-186.466 362.428-393.148 362.428-199.793 0-365.93-148.97-390.777-342.212-3.388-16.94-4.517-34.898-4.517-53.082v-60.988c1.355-.113 2.258-.452 3.614-.678 10.503-1.807 19.877-4.179 29.364-6.663 8.132-2.033 16.15-4.18 23.38-6.664 7.905-2.71 15.472-5.421 22.587-8.583 8.132-3.502 15.586-7.116 23.04-10.956 5.083-2.823 10.391-5.308 15.135-8.132a662.834 662.834 0 0 0 20.668-12.762c3.388-2.259 7.34-4.518 10.503-6.55 4.857-3.163 9.6-5.986 14.344-8.923 34.447-21.572 67.313-38.4 128.527-38.513h.226c53.195 0 84.932 12.085 114.635 29.026 9.826 5.647 19.539 11.972 29.817 18.522 35.124 22.815 73.976 47.549 133.722 58.956.678.113 1.13.452 1.807.564 20.33 3.728 43.143 5.873 69.007 5.873.452 0 .79-.113 1.242-.113 103.342-.225 157.214-34.785 204.537-65.392l55.793-34.448v-.112l.564-.452-3.952-21.346-2.372-15.473c-5.308-34.447-15.247-67.426-27.22-99.501-24.733-66.748-62.568-127.963-114.521-179.803-26.993-27.218-57.6-50.936-89.224-70.136-80.188-50.71-173.93-77.93-269.93-77.93-220.235 0-408.846 141.177-478.87 338.824-19.2 53.082-29.365 109.553-29.365 169.412V621.12c0 19.2 1.13 38.4 3.502 56.47C472.108 829.949 557.152 960.735 678 1042.166h-5.083c-111.812 18.41-222.042 46.983-328.433 87.19-140.612 53.309-231.53 183.417-231.53 331.709V1669.1l26.768 16.49c172.235 106.955 454.475 234.353 820.292 234.353 201.938 0 508.235-40.546 820.404-234.353l26.654-16.49v-208.037c0-144.904-88.094-276.255-219.218-327.078"
+                                            fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="nav-link-text ms-1">User Manajemen</span>
+                        </a>
+                    </li>
+                @endif
                 <li class="menu-header mt-2 text-dark font-weight-bold">Transaksi</li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('transaksi-verifikasi') ? 'active' : 'button-hover-custom' }}"
                         href="{{ route('index-verifikasi') }}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <svg width="256px" height="256px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                fill="none">
+                            <svg width="256px" height="256px" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg" fill="none">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                 <g id="SVGRepo_iconCarrier">
@@ -245,6 +266,36 @@
                         <span class="nav-link-text ms-1">Pengembalian</span>
                     </a>
                 </li>
+                <li class="menu-header mt-2 text-dark font-weight-bold">Pengaturan</li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('pengaturan-akun') ? 'active' : 'button-hover-custom' }}"
+                        href="{{ route('index-pengaturan-akun') }}">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <svg width="256px" height="256px" viewBox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>setting-solid</title>
+                                    <g id="Layer_2" data-name="Layer 2">
+                                        <g id="invisible_box" data-name="invisible box">
+                                            <rect width="48" height="48" fill="none"></rect>
+                                            <rect width="48" height="48" fill="none"></rect>
+                                            <rect width="48" height="48" fill="none"></rect>
+                                        </g>
+                                        <g id="icons_Q2" data-name="icons Q2">
+                                            <path class="color-background"
+                                                d="M40.2,29.2l5.5-1.5a23,23,0,0,0,0-7.4l-5.5-1.5a1.8,1.8,0,0,1-1.1-2.6l2.8-5a20.6,20.6,0,0,0-5.1-5.1l-5,2.8-.8.2a1.8,1.8,0,0,1-1.8-1.3L27.7,2.3a23,23,0,0,0-7.4,0L18.8,7.8A1.8,1.8,0,0,1,17,9.1l-.8-.2-5-2.8a20.6,20.6,0,0,0-5.1,5.1l2.8,5a1.8,1.8,0,0,1-1.1,2.6L2.3,20.3a23,23,0,0,0,0,7.4l5.5,1.5a1.8,1.8,0,0,1,1.1,2.6l-2.8,5a20.6,20.6,0,0,0,5.1,5.1l5-2.8.8-.2a1.8,1.8,0,0,1,1.8,1.3l1.5,5.5a23,23,0,0,0,7.4,0l1.5-5.5A1.8,1.8,0,0,1,31,38.9l.8.2,5,2.8a20.6,20.6,0,0,0,5.1-5.1l-2.8-5A1.8,1.8,0,0,1,40.2,29.2ZM24,33a9,9,0,1,1,9-9A9,9,0,0,1,24,33Z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Akun</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="sidenav-footer mx-3 ">
@@ -268,7 +319,8 @@
                         <li class="nav-item d-flex align-items-center">
                             <a class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none">Hi, Admin</span>
+                                <span class="d-sm-inline d-none">Hi,
+                                    {{ auth()->user()->role === 1 ? 'Super Admin' : 'Admin' }}</span>
                             </a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -289,7 +341,7 @@
             @yield('data')
 
 
-            <footer class="footer pt-3" style="{{ request()->is('dashboard') ? 'margin-top: 500px;' : '' }}">
+            <footer class="footer pt-3">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
                         <div class="col-lg-6 mb-lg-0 mb-4">
@@ -481,7 +533,7 @@
                 icon: 'success',
                 title: '{{ session('success') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         } else if ('{{ session()->has('warning') }}') {
@@ -490,7 +542,7 @@
                 icon: 'warning',
                 title: '{{ session('warning') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         } else if ('{{ session()->has('error') }}') {
@@ -499,7 +551,7 @@
                 icon: 'error',
                 title: '{{ session('error') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         }
@@ -526,6 +578,7 @@
                 } else if (modal.find('.modal-dialog').hasClass("modal-xl")) {
                     modal.find('.modal-dialog').removeClass("modal-xl")
                 }
+
                 modal.find('.modal-dialog').addClass(size);
                 modal.find('.modal-title').html(title);
             });
@@ -555,7 +608,6 @@
                 }
                 $('#file-chosen').html(image.files[0].name);
             }
-
         }
 
         function file_form() {

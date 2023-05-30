@@ -108,7 +108,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">UD Adi Alam Bagus</a>
+            <a class="navbar-brand" href="{{ route('halaman-utama') }}">UD Adi Alam Bagus</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
@@ -174,12 +174,12 @@
                     <div class="ftco-footer-widget mb-0">
                         <h2 class="ftco-heading-2">UD Adi Alam Bagus</h2>
                         <p>
-                            UD. Adi Alam Bagus adalah sebuah toko yang bergerak dibidang penjualan batu alam
+                            UD. Adi Alam Bagus adalah sebuah toko yang bergerak dibidang penjualan Batu Alam.
                         </p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             {{-- <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li> --}}
-                            <li class="ftco-animate"><a href="http://www.facebook.com/AlamBagus" target="blank"><span
-                                        class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="http://www.facebook.com/alam.bagus.900"
+                                    target="blank"><span class="icon-facebook"></span></a></li>
                             <li class="ftco-animate"><a href="https://instagram.com/ud.adialambagus"
                                     target="blank"><span class="icon-instagram"></span></a></li>
                         </ul>
@@ -297,8 +297,6 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
-
         });
 
         function Modal(href, size, title) {
@@ -447,7 +445,7 @@
                 icon: 'success',
                 title: '{{ session('success') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         } else if ('{{ session()->has('warning') }}') {
@@ -456,7 +454,7 @@
                 icon: 'warning',
                 title: '{{ session('warning') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         } else if ('{{ session()->has('error') }}') {
@@ -465,7 +463,7 @@
                 icon: 'error',
                 title: '{{ session('error') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         }

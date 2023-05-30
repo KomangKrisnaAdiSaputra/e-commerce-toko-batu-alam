@@ -42,7 +42,7 @@ class BarangController extends Controller
         $ekstensi = $gambar->getClientMimeType();
 
         if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-            $path = public_path('image/barang/');
+            $path = getcwd() . '/image/barang/';
             !is_dir($path) &&
                 mkdir($path, 0777, true);
             $nama_gambar = time() . '.' . $request->gambar->extension();
@@ -119,7 +119,8 @@ class BarangController extends Controller
             $ekstensi = $gambar->getClientMimeType();
 
             if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-                $path = public_path('image/barang/');
+                $path = getcwd() . '/image/barang/';
+
                 if (File::exists($path . $barang->gambar)) {
                     File::delete($path . $barang->gambar);
                 }
@@ -161,7 +162,7 @@ class BarangController extends Controller
         foreach (TbUkuran::where('id_barang', $id)->get() as $key => $value) {
             TbUkuran::find($value->id)->delete();
         }
-        $path = public_path('image/barang/');
+        $path = getcwd() . '/image/barang/';
         if (File::exists($path . $barang->gambar)) {
             File::delete($path . $barang->gambar);
         }
@@ -175,7 +176,7 @@ class BarangController extends Controller
     {
         $barang = TbBarang::find($id);
 
-        ($barang->status == 1) ? $status = 0 : $status = 1;
+        $status = ($barang->status == 1) ? 0 : 1;
 
         $barang->update(['status' => $status]);
 

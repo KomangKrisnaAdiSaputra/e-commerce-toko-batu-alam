@@ -158,7 +158,7 @@ class TransaksiAdminController extends Controller
 
         $fileName = uniqid() . '.png';
 
-        $path = public_path('image/bukti-penerima/');
+        $path =  getcwd() . '/image/bukti-penerima/';
         !is_dir($path) &&
             mkdir($path, 0777, true);
         ResizeImage::make($image_base64)->resize(1000, 1000, function ($constraint) {

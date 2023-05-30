@@ -39,10 +39,7 @@
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <div>
-                                                    @if (
-                                                        $value->gambar == '' ||
-                                                            $value->gambar == null ||
-                                                            file_exists(public_path('/image/barang/' . $value->gambar)) == false)
+                                                    @if ($value->gambar == '' || $value->gambar == null)
                                                         <img src="{{ asset('/image/default.png') }}"
                                                             class="avatar avatar-sm me-3" alt="user1">
                                                     @else

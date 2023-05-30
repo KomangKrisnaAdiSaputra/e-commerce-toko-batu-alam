@@ -147,7 +147,8 @@ class TransaksiController extends Controller
                 // $widht = getimagesize($gambar)[0] - 500;
                 // $height = getimagesize($gambar)[1] - 500;
                 if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-                    $path = public_path('image/pembayaran-transaksi/');
+                    $path = getcwd() . '/image/pembayaran-transaksi/';
+
                     !is_dir($path) &&
                         mkdir($path, 0777, true);
                     $nama_gambar = time() . '.' . $request->gambar->extension();
@@ -173,7 +174,9 @@ class TransaksiController extends Controller
             $ekstensi_diperbolehkan    = array('image/png', 'image/jpg', 'image/jpeg');
             $ekstensi = $gambar->getClientMimeType();
             if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-                $path = public_path('image/bukti-pengembalian/');
+
+                $path = getcwd() . '/image/bukti-pengembalian/';
+
                 !is_dir($path) &&
                     mkdir($path, 0777, true);
                 $nama_gambar = time() . '.' . $request->gambar->extension();

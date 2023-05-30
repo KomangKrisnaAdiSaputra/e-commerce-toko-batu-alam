@@ -219,7 +219,7 @@
                 icon: 'success',
                 title: '{{ session('success') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         } else if ('{{ session()->has('warning') }}') {
@@ -228,7 +228,7 @@
                 icon: 'warning',
                 title: '{{ session('warning') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         } else if ('{{ session()->has('error') }}') {
@@ -237,7 +237,7 @@
                 icon: 'error',
                 title: '{{ session('error') }}',
                 showConfirmButton: false,
-                timer: 5500,
+                timer: 3300,
 
             })
         }

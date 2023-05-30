@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BarangController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TransaksiAdminController;
+use App\Http\Controllers\Admin\UserManajemenController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Pembeli\PembeliController;
 use App\Http\Controllers\Pembeli\TransaksiController;
@@ -48,10 +49,6 @@ Route::get('/tentang', [PembeliController::class, 'data_tentang'])->name('data-t
 Route::get('/kontak', [PembeliController::class, 'data_kontak'])->name('data-kontak');
 
 
-
-
-
-
 Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 
     // DASHBOARD
@@ -65,6 +62,14 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/barang/kelola-ukuran/{status}/{id}/{value}', [BarangController::class, 'kelola_ukuran'])->name('kelola-ukuran');
     Route::resource('barang', BarangController::class, ['names' => 'barang']);
 
+    // USER MANAJEMEN
+    Route::get('/user-manajemen/ganti-status/{id}', [UserManajemenController::class, 'ganti_status'])->name('ganti-status-user');
+    Route::get('/user-manajemen/cek-email/{value}', [UserManajemenController::class, 'cek_email']);
+    Route::resource('user-manajemen', UserManajemenController::class, ['names' => 'user-manajemen']);
+});
+
+Route::group(['middleware' => ['auth', 'checkrole:1,3']], function () {
+
     // DATA TRANSAKSI ADMIN
     Route::get('/transaksi-verifikasi', [TransaksiAdminController::class, 'index_verifikasi'])->name('index-verifikasi');
     Route::get('/transaksi-belum-dikemas', [TransaksiAdminController::class, 'index_dikemas'])->name('index-dikemas');
@@ -73,13 +78,15 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/transaksi-dibatalkan', [TransaksiAdminController::class, 'index_dibatalkan'])->name('index-dibatalkan');
     Route::get('/transaksi-pengembalian', [TransaksiAdminController::class, 'index_pengembalian'])->name('index-pengembalian');
 
-
     Route::get('/ganti-status-transaksi/{id}/{status}', [TransaksiAdminController::class, 'ganti_status_transaksi'])->name('ganti-status-transaksi');
     Route::get('/detail-transaksi/{id}/{status}', [TransaksiAdminController::class, 'show'])->name('detail-transaksi');
     Route::get('/upload-bukti/{id}', [TransaksiAdminController::class, 'create'])->name('upload-bukti');
     Route::post('/upload-bukti/{id}', [TransaksiAdminController::class, 'update'])->name('upload-bukti-penerima');
 
     Route::get('/cek-transaksi', [TransaksiAdminController::class, 'cek_transaksi'])->name('cek-transaksi');
+
+    Route::get('/pengaturan-akun', [UserManajemenController::class, 'pengaturan_akun'])->name('index-pengaturan-akun');
+    Route::post('/pengaturan-akun', [UserManajemenController::class, 'update_akun'])->name('update-akun');
 });
 
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {

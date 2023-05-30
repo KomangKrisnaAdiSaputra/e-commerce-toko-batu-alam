@@ -168,6 +168,12 @@
                 password_baru.required = false;
                 konfirmasi_password.required = false;
             }
+
+            if (password_baru.value === konfirmasi_password.value) {
+                $(":submit").attr("disabled", false);
+            } else {
+                $(":submit").attr("disabled", true);
+            }
         }
     </script>
 @endsection

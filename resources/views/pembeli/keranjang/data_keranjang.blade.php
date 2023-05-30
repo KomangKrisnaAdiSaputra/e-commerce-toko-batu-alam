@@ -3,7 +3,7 @@
         <tr class="text-center">
             <th>
                 <input type="checkbox" id="centang_semua" onclick="centang_semua()"
-                    style="width: 25px; height: 25px; cursor: pointer;">
+                    style="width: 25px; height: 25px; cursor: pointer;" {{ $data->count() === 0 ? 'disabled' : '' }}>
             </th>
             <th>&nbsp;</th>
             <th>&nbsp;</th>
@@ -60,8 +60,8 @@
                                     <i class="ion-ios-remove icon-jumlah"></i>
                                 </button>
                             </span>
-                            <input type="text" id="jumlah{{ $key }}" name="jumlah"
-                                class="form-control input-number" value="{{ $value->jumlah }}" readonly>
+                            <input type="number" id="jumlah{{ $key }}" name="jumlah"
+                                class="form-control input-number" value="{{ $value->jumlah }}" min="1">
                             <span class="input-group-btn ml-2">
                                 <button type="button" class="quantity-right-plus btn btn-jumlah " data-type="plus"
                                     data-field=""

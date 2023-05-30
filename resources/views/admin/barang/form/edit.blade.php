@@ -6,7 +6,7 @@
             <label for="nama_barang">Nama Barang</label>
             <input type="text" class="form-control" id="nama_barang" name="nama_barang"
                 onkeyup="ucword('nama_barang', this.value)" value="{{ $data['barang']->nama_barang }}"
-                placeholder="Masukkan Nama Barang" autocomplete='off'>
+                placeholder="Masukkan Nama Barang" autocomplete='off' required>
         </div>
         <div class="form-group col-md-6">
             <label for="keterangan">Keterangan</label>
@@ -16,10 +16,7 @@
     </div>
     <div class="col-12 mt-4" style="text-align: center;">
         <div class="form-group">
-            @if (
-                $data['barang']->gambar == '' ||
-                    $data['barang']->gambar == null ||
-                    file_exists(public_path('/image/barang/' . $data['barang']->gambar)) == false)
+            @if ($data['barang']->gambar == '' || $data['barang']->gambar == null)
                 <img src="{{ asset('/image/default.png') }}" alt="" height="10%" width="40%"
                     class="img-preview" style="border-radius: 8px;">
             @else

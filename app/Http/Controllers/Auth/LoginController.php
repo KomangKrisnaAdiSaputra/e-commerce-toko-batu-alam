@@ -71,6 +71,9 @@ class LoginController extends Controller
                         return redirect()->route('dashboard.index');
                     } elseif (auth()->user()->role == 2) {
                         return redirect()->route('halaman-utama');
+                    } elseif (auth()->user()->role == 3) {
+                        session()->flash('success', 'Login Sukses!');
+                        return redirect()->route('index-verifikasi');
                     }
                 } elseif (auth()->user()->status == 2) {
                     session()->flash('error', 'Akun Anda Belum Di Verifikasi!');

@@ -70,7 +70,9 @@
                                 <div id="rekening">
                                     <p class="d-flex total-price mt-4 text-danger">
                                         *Rekening BCA: 1420382011 <br>
-                                        a/n : Ni Putu Eka Sari Widyastuti
+                                        a/n : Ni Putu Eka Sari Widyastuti <br><br>
+                                        *Mengenai Ongkos Kirim adalah kesepakatan
+                                        Kurir dan Pembeli ketika barang sampai ditujuan nanti.
                                     </p>
                                 </div>
                             </div>

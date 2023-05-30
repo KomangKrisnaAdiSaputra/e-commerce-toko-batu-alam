@@ -4,10 +4,7 @@
             <div class="card-body">
                 <div class="d-flex flex-column" style="text-align: center;">
                     <div class="p-2">
-                        @if (
-                            $data['barang']->gambar == '' ||
-                                $data['barang']->gambar == null ||
-                                file_exists(public_path('/image/barang/' . $data['barang']->gambar)) == false)
+                        @if ($data['barang']->gambar == '' || $data['barang']->gambar == null)
                             <img src="{{ asset('/image/default.png') }}" alt="" height="20%" width="40%"
                                 class="img-preview" style="border-radius: 20px;">
                         @else

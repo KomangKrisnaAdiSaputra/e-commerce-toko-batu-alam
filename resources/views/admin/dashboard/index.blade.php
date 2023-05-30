@@ -94,14 +94,13 @@
                     <div class="row">
                         <div class="mb-3 col-md-5">
                             <label for="tanggal_pertama" class="form-label">Tanggal Pertama</label>
-                            <input type="date" class="form-control" id="tanggal_pertama" name="tanggal_pertama"
-                                onchange="filter_tanggal('tanggal_pertama')"
-                                max="{{ Carbon\Carbon::now()->todateString() }}">
+                            <input type="date" class="form-control" id="tanggal_pertama" max="{{ Carbon\Carbon::now()->toDateString() }}" name="tanggal_pertama"
+                                onchange="filter_tanggal('tanggal_pertama')">
                         </div>
                         <div class="mb-3 ml-2 col-md-5">
                             <label for="tanggal_kedua" class="form-label">Tanggal Kedua</label>
-                            <input type="date" class="form-control " id="tanggal_kedua" name="tanggal_kedua"
-                                onchange="filter_tanggal('tanggal_kedua')" max="{{ Carbon\Carbon::now()->todateString() }}">
+                            <input type="date" class="form-control " id="tanggal_kedua" max="{{ Carbon\Carbon::now()->toDateString() }}" name="tanggal_kedua"
+                                onchange="filter_tanggal('tanggal_kedua')">
                         </div>
                         <div class="col-md-1 ml-2">
                             <button type="button" class="btn btn-danger" style="margin-top: 32px;" id="btn_x"
